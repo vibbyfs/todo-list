@@ -19,7 +19,7 @@ export class Todo {
   id: number;
 
   @Column({ length: 200 })
-  type: string;
+  title: string;
 
   @Column({ type: 'enum', enum: TodoStatus, default: TodoStatus.CREATED })
   status: TodoStatus;

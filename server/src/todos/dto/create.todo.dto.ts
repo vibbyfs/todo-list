@@ -1,3 +1,3 @@
-export class createTodoDto {
+export class CreateTodoDto {
   title: string;
 }
