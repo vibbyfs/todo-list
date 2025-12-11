@@ -6,11 +6,18 @@ import { useTodos } from "./hooks/UseTodos";
 
 const TodoPage = () => {
   const [title, setTitle] = useState("");
+  const [search, setSearch] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
 
   const createTodoMutation = useCreateTodo();
 
-  const { data: todos = [], isLoading, isError, error } = useTodos();
+  const {
+    data: todos = [],
+    isLoading,
+    isError,
+    error,
+    isFetching,
+  } = useTodos(search);
 
   const handleAddTodo = (e) => {
     e.preventDefault();
@@ -60,6 +67,9 @@ const TodoPage = () => {
           isLoading={isLoading}
           isError={isError}
           error={error}
+          search={search}
+          setSearch={setSearch}
+          isRefreshing={isFetching && !isLoading}
         />
       </div>
     </div>

@@ -1,11 +1,25 @@
 import React from "react";
+import SearchTodo from "./SearchTodo";
 
-const TodoList = ({ todos, isLoading, isError, error }) => {
+const TodoList = ({
+  todos,
+  isLoading,
+  isError,
+  error,
+  search,
+  setSearch,
+  isRefreshing,
+}) => {
   return (
     <section className="bg-white rounded-xl shadow-sm border border-slate-200 p-4 sm:p-5">
       <h2 className="text-lg font-semibold text-slate-900 mb-3">
         Daftar Todos
       </h2>
+      <SearchTodo
+        search={search}
+        setSearch={setSearch}
+        isRefreshing={isRefreshing}
+      />
 
       {isLoading && (
         <p className="text-sm text-slate-500 italic mb-2">Loading...</p>
@@ -20,7 +34,7 @@ const TodoList = ({ todos, isLoading, isError, error }) => {
       {!isLoading && !isError && (
         <>
           {todos.length === 0 ? (
-            <p className="text-sm text-slate-500">Nothing data</p>
+            <p className="text-sm text-slate-500">Data not found</p>
           ) : (
             <div className="overflow-x-auto">
               <table className="min-w-full text-sm">
