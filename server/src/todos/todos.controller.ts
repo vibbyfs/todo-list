@@ -35,8 +35,11 @@ export class TodosController {
   }
 
   @Post()
-  create(@Body() createTodoDto: CreateTodoDto): Promise<Todo> {
-    return this.todoService.create(createTodoDto);
+  async create(
+    @Body() createTodoDto: CreateTodoDto,
+  ): Promise<{ message: string; data: Todo }> {
+    const todo = await this.todoService.create(createTodoDto);
+    return { message: 'Todo created successfully', data: todo };
   }
 
   @Patch(':id')

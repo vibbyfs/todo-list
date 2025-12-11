@@ -11,6 +11,7 @@ export const api = axios.create({
 
 api.interceptors.request.use((config) => {
     config.headers['x-user-id'] = 'user-header'
+    return config
 })
 
 api.interceptors.response.use(
@@ -27,7 +28,7 @@ api.interceptors.response.use(
             }
 
             const err = new Error(message)
-            err.status = err.response.status
+            err.status = error.response.status
             throw err
         }
         throw error
