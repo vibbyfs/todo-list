@@ -4,12 +4,14 @@ import { Todo, TodoStatus } from './entities/todos.entity';
 import { FindOptionsWhere, ILike, Repository } from 'typeorm';
 import { CreateTodoDto } from './dto/create.todo.dto';
 import { UpdateTodoStatusDto } from './dto/update.todo.dto';
+import { AiService } from '../ai/ai.service';
 
 @Injectable()
 export class TodosService {
   constructor(
     @InjectRepository(Todo)
     private readonly todoRepository: Repository<Todo>,
+    private readonly aiService: AiService,
   ) {}
 
   async findAll(search?: string): Promise<Todo[]> {
@@ -61,5 +63,24 @@ export class TodosService {
     }
 
     return this.todoRepository.save(todo);
+  }
+
+  async getDetailRecomendation(
+    id: number,
+  ): Promise<Todo & { aiRecomendation: string | null }> {
+    const todo = await this.findOne(id);
+
+    let aiRecomendation: string | null = null;
+
+    if (todo.status === TodoStatus.PROBLEM && todo.problemDesc) {
+      aiRecomendation = await this.aiService.recomendProblemDesc(
+        todo.problemDesc,
+      );
+    }
+
+    return {
+      ...todo,
+      aiRecomendation: aiRecomendation,
+    };
   }
 }

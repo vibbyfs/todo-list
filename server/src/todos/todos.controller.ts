@@ -27,6 +27,13 @@ export class TodosController {
     return this.todoService.findOne(id);
   }
 
+  @Get(':id/detail')
+  getDetail(
+    @Param('id', ParseIntPipe) id: number,
+  ): Promise<Todo & { aiRecomendation: string | null }> {
+    return this.todoService.getDetailRecomendation(id);
+  }
+
   @Post()
   create(@Body() createTodoDto: CreateTodoDto): Promise<Todo> {
     return this.todoService.create(createTodoDto);

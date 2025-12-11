@@ -2,9 +2,15 @@ import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
 import { TodosModule } from './todos/todos.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UserHeaderMiddleware } from './middlewares/user.middleware';
+import { AiService } from './ai/ai.service';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
   imports: [
+    ConfigModule.forRoot({
+      isGlobal: true,
+      envFilePath: '.env',
+    }),
     TypeOrmModule.forRoot({
       type: 'postgres',
       host: 'localhost',
@@ -18,7 +24,7 @@ import { UserHeaderMiddleware } from './middlewares/user.middleware';
     TodosModule,
   ],
   controllers: [],
-  providers: [],
+  providers: [AiService],
 })
 export class AppModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
