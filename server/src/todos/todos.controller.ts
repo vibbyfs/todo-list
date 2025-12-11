@@ -22,6 +22,11 @@ export class TodosController {
     return this.todoService.findAll(search);
   }
 
+  @Get(':id')
+  findOne(@Param('id', ParseIntPipe) id: number): Promise<Todo> {
+    return this.todoService.findOne(id);
+  }
+
   @Post()
   create(@Body() createTodoDto: CreateTodoDto): Promise<Todo> {
     return this.todoService.create(createTodoDto);
