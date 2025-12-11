@@ -9,6 +9,9 @@ export class AiService {
 
   constructor(private configService: ConfigService) {
     const apiKey = this.configService.get<string>('OPENAI_API_KEY');
+    if (!apiKey) {
+      throw new Error('OPENAI_API_KEY is not defined in environment variables');
+    }
     this.client = new OpenAI({ apiKey });
   }
 
@@ -17,8 +20,8 @@ export class AiService {
       const response = await this.client.responses.create({
         model: 'gpt-5',
         instructions:
-          'Kamu adalah asisten teknis yang memberi saran singkat, praktis, dan spesifik untuk menyelesaikan masalah pada sebuah todo. Jawab dalam Bahasa Indonesia dan maksimal 3 poin pendek.',
-        input: `Todo ini memiliki problem: "${problemDesc}". Berikan rekomendasi langkah perbaikan yang realistis dan actionable.`,
+          'You are a technical assistant that provides brief, practical, and specific advice to solve problems on a todo item. Respond in the same language as the user input and a maximum of 3 short points.',
+        input: `This Todo has a problem: "${problemDesc}". Provide realistic and actionable recommended steps for improvement.`,
       });
       return response.output_text ?? 'Nothing recomendation form AI';
     } catch (err) {
