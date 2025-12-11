@@ -1,12 +1,16 @@
 import { useState } from "react";
 import { TitleForm } from "./components/TitleForm";
 import { useCreateTodo } from "./hooks/useCreateTodo";
+import TodoList from "./components/TodoList";
+import { useTodos } from "./hooks/UseTodos";
 
 const TodoPage = () => {
   const [title, setTitle] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
 
   const createTodoMutation = useCreateTodo();
+
+  const { data: todos = [], isLoading, isError, error } = useTodos();
 
   const handleAddTodo = (e) => {
     e.preventDefault();
@@ -49,6 +53,13 @@ const TodoPage = () => {
           isPending={createTodoMutation.isPending}
           error={createTodoMutation.isError ? createTodoMutation.error : null}
           successMessage={successMessage}
+        />
+
+        <TodoList
+          todos={todos}
+          isLoading={isLoading}
+          isError={isError}
+          error={error}
         />
       </div>
     </div>
