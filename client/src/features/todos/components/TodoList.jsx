@@ -17,10 +17,8 @@ const TodoList = ({
 }) => {
   return (
     <section className="bg-white rounded-xl shadow-sm border border-slate-200 p-4 sm:p-5">
-      <h2 className="text-lg font-semibold text-slate-900 mb-3">
-        Daftar Todos
-      </h2>
-      <div>
+      <h2 className="text-lg font-semibold text-slate-900 mb-3">Todo List</h2>
+      <div className="mb-2">
         <SearchTodo
           search={search}
           setSearch={setSearch}
@@ -40,13 +38,13 @@ const TodoList = ({
 
       {isUpdating && (
         <p className="text-xs text-slate-500 italic mb-1">
-          Update status todo...
+          Updating todo status...
         </p>
       )}
 
       {updateError && (
         <p className="text-xs text-rose-600 mb-2">
-          Failed update status: {updateError.message}
+          Failed to update status: {updateError.message}
         </p>
       )}
 
@@ -90,7 +88,7 @@ const TodoList = ({
                         </td>
                         <td className="py-2 px-2">
                           <select
-                            className="rounded-md border border-slate-300 bg-white px-2 py-1 text-xs sm:text-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                            className="rounded-md border border-slate-300 bg-white px-2 py-1 text-xs sm:text-sm shadow-sm focus:outline-none focus:ring-1 focus:ring-slate-500 focus:border-slate-500"
                             value={todo.status}
                             onChange={(e) =>
                               onChangeStatus(todo, e.target.value)
@@ -107,9 +105,9 @@ const TodoList = ({
                         <td className="py-2 px-2">
                           <button
                             type="button"
-                            className={`inline-flex items-center justify-center rounded-md px-3 py-1 text-xs sm:text-sm font-medium border shadow-sm ${
+                            className={`inline-flex items-center justify-center rounded-md px-3 py-1 text-xs sm:text-sm font-medium border shadow-sm transition-colors cursor-pointer ${
                               isSelected
-                                ? "bg-indigo-100 text-indigo-700 border-indigo-300"
+                                ? "bg-slate-100 text-slate-700 border-slate-400 hover:bg-slate-200"
                                 : "bg-white text-slate-700 border-slate-300 hover:bg-slate-50"
                             }`}
                             onClick={() => onSelectTodo(todo.id)}

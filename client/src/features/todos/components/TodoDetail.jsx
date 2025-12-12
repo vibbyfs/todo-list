@@ -7,7 +7,7 @@ function TodoDetail({ selectedTodoId, todoDetail, isLoading, isError, error }) {
 
       {!selectedTodoId && (
         <p className="text-sm text-slate-500">
-          Pilih todo dari daftar untuk melihat detail dan rekomendasi AI.
+          Select a todo from the list to view details and AI recommendations.
         </p>
       )}
 
@@ -19,7 +19,7 @@ function TodoDetail({ selectedTodoId, todoDetail, isLoading, isError, error }) {
 
           {isError && (
             <p className="text-rose-600">
-              Error detail: {error?.message || "Gagal memuat detail."}
+              Error detail: {error?.message || "Failed to load details."}
             </p>
           )}
 
@@ -47,9 +47,9 @@ function TodoDetail({ selectedTodoId, todoDetail, isLoading, isError, error }) {
                 <p className="font-semibold text-slate-800 mb-2">
                   AI Recommendation:
                 </p>
-                <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg p-4 border border-blue-100">
+                <div className="bg-gradient-to-r from-slate-50 to-slate-100 rounded-lg p-4 border border-slate-200">
                   <p className="text-slate-700 whitespace-pre-line text-sm leading-relaxed">
-                    {todoDetail.aiRecomendation || "Belum ada rekomendasi AI."}
+                    {todoDetail.aiRecomendation || "No AI recommendation yet."}
                   </p>
                 </div>
               </div>

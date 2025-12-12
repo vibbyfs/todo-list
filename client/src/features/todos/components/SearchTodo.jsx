@@ -2,9 +2,7 @@ import React from "react";
 
 const SearchTodo = ({ search, setSearch, isRefreshing }) => {
   return (
-    <section className="bg-white rounded-xl shadow-sm border border-slate-200 p-4 sm:p-5 h-full">
-      <h2 className="text-lg font-semibold text-slate-900 mb-3">Search</h2>
-
+    <>
       <input
         type="text"
         value={search}
@@ -14,9 +12,9 @@ const SearchTodo = ({ search, setSearch, isRefreshing }) => {
       />
 
       {isRefreshing && (
-        <p className="mt-1 text-xs text-slate-500 italic">Refresing data...</p>
+        <p className="mt-1 text-xs text-slate-500 italic">Refreshing data...</p>
       )}
-    </section>
+    </>
   );
 };
 

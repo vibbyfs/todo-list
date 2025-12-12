@@ -16,14 +16,14 @@ export const TitleForm = ({
           value={title}
           onChange={(e) => setTitle(e.target.value)}
           disabled={isPending}
-          placeholder="e.g. Running every wekeend"
-          className="w-full flex-1 rounded-lg border border-slate-300 bg-slate-50 px-3 py-2 text-sm sm:text-base shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+          placeholder="e.g. Running every weekend"
+          className="w-full flex-1 rounded-lg border border-slate-300 bg-slate-50 px-3 py-2 text-sm sm:text-base shadow-sm focus:outline-none focus:ring-1 focus:ring-slate-500 focus:border-slate-500"
         />
 
         <button
           type="submit"
           disabled={isPending}
-          className="inline-flex items-center justify-center rounded-lg bg-indigo-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 disabled:bg-indigo-300 disabled:cursor-not-allowed cursor-pointer"
+          className="inline-flex items-center justify-center rounded-lg bg-slate-800 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-slate-900 focus:outline-none focus:ring-1 focus:ring-slate-600 focus:ring-offset-2 disabled:bg-slate-400 disabled:cursor-not-allowed cursor-pointer"
         >
           {isPending ? "Adding..." : "Add"}
         </button>

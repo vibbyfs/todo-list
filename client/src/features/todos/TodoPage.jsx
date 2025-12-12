@@ -45,7 +45,7 @@ const TodoPage = () => {
       {
         onSuccess: (data) => {
           setTitle("");
-          setSuccessMessage(data.message || "Todo berhasil ditambahkan!");
+          setSuccessMessage(data.message || "Todo added successfully!");
           setTimeout(() => setSuccessMessage(""), 3000);
         },
         onError: () => {
@@ -97,7 +97,7 @@ const TodoPage = () => {
             Todo Dashboard
           </h1>
           <p className="mt-1 text-sm sm:text-base text-slate-600">
-            Add your todo and watch your todo progress.
+            Manage your todos and track progress.
           </p>
         </header>
         <div className="flex flex-col lg:flex-row gap-6">
