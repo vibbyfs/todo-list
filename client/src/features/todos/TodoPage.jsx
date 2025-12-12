@@ -97,7 +97,8 @@ const TodoPage = () => {
             Todo Dashboard
           </h1>
           <p className="mt-1 text-sm sm:text-base text-black">
-            Manage your todos and track progress.
+            Manage your todos, track your progress, and get AI powered solutions
+            for any problems in your tasks.
           </p>
         </div>
       </header>

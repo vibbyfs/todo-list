@@ -99,7 +99,7 @@ const TodoList = ({
                             </select>
                             <button
                               type="button"
-                              className={`inline-flex items-center justify-center rounded-sm border border-black px-3 py-1 text-xs sm:text-sm font-semibold shadow-sm transition-colors cursor-pointer ${
+                              className={`inline-flex items-center justify-center rounded-sm border border-black px-3 py-1 text-xs sm:text-sm font-semibold transition-colors cursor-pointer ${
                                 isSelected
                                   ? "bg-[#001F3D] text-white hover:bg-[#ED985F] hover:text-black"
                                   : "bg-[#ED985F] text-black hover:bg-[#001F3D] hover:text-white"
