@@ -23,7 +23,7 @@ export const TitleForm = ({
         <button
           type="submit"
           disabled={isPending}
-          className="inline-flex items-center justify-center rounded-sm bg-[#ED985F] border border-black px-4 py-2 text-sm font-semibold text-black shadow-sm hover:bg-[#001F3D] hover:text-white cursor-pointer"
+          className="inline-flex items-center justify-center rounded-sm bg-[#ED985F] border border-black px-4 py-2 text-sm font-semibold text-black hover:bg-[#001F3D] hover:text-white cursor-pointer"
         >
           {isPending ? "Adding..." : "Add"}
         </button>
