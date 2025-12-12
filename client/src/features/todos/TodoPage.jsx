@@ -2,9 +2,9 @@ import { useState } from "react";
 import { TitleForm } from "./components/TitleForm";
 import { useCreateTodo } from "./hooks/useCreateTodo";
 import TodoList from "./components/TodoList";
-import { useTodos } from "./hooks/UseTodos";
+import { useTodos } from "./hooks/useTodos";
 import { useUpdateTodoStatus } from "./hooks/useUpdateTodoStatus";
-import { UseTodoDetail } from "./hooks/useTodoDetail";
+import { useTodoDetail } from "./hooks/useTodoDetail";
 import TodoDetail from "./components/TodoDetail";
 import ProblemDescModal from "./components/ProblemDescModal";
 
@@ -33,7 +33,7 @@ const TodoPage = () => {
     isLoading: isDetailLoading,
     isError: isDetailError,
     error: detailError,
-  } = UseTodoDetail(selectedTodoId);
+  } = useTodoDetail(selectedTodoId);
 
   const handleAddTodo = (e) => {
     e.preventDefault();
