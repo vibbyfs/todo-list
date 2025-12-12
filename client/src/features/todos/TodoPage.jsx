@@ -90,18 +90,30 @@ const TodoPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
-        <header className="mb-6 sm:mb-8">
+    <div className="min-h-screen bg-[#E6E6E6]">
+      <header className="w-full bg-[#ED985F] border-b border-black py-6 sm:py-8 mb-6 sm:mb-8">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-2xl sm:text-3xl font-bold text-slate-900">
             Todo Dashboard
           </h1>
-          <p className="mt-1 text-sm sm:text-base text-slate-600">
+          <p className="mt-1 text-sm sm:text-base text-black">
             Manage your todos and track progress.
           </p>
-        </header>
+        </div>
+      </header>
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row gap-6">
-          <div className="w-full lg:flex-1 lg:min-w-0 order-2 lg:order-1">
+          <div className="w-full lg:flex-1 lg:min-w-0 order-2 lg:order-1 space-y-4">
+            <TitleForm
+              title={title}
+              setTitle={setTitle}
+              onSubmit={handleAddTodo}
+              isPending={createTodoMutation.isPending}
+              error={
+                createTodoMutation.isError ? createTodoMutation.error : null
+              }
+              successMessage={successMessage}
+            />
             <TodoList
               todos={todos}
               isLoading={isLoading}
@@ -120,18 +132,7 @@ const TodoPage = () => {
             />
           </div>
 
-          <div className="w-full lg:w-96 lg:shrink-0 space-y-6 order-1 lg:order-2">
-            <TitleForm
-              title={title}
-              setTitle={setTitle}
-              onSubmit={handleAddTodo}
-              isPending={createTodoMutation.isPending}
-              error={
-                createTodoMutation.isError ? createTodoMutation.error : null
-              }
-              successMessage={successMessage}
-            />
-
+          <div className="w-full lg:w-96 lg:shrink-0 order-1 lg:order-2">
             <TodoDetail
               selectedTodoId={selectedTodoId}
               todoDetail={todoDetail}

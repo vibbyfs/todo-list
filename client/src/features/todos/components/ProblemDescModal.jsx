@@ -23,16 +23,16 @@ function ProblemDescModal({ isOpen, onClose, onSubmit, initialValue = "" }) {
 
   return (
     <div
-      className="fixed inset-0  bg-opacity-30 backdrop-blur-sm flex items-center justify-center z-50 p-4"
+      className="fixed inset-0 bg-opacity-30 backdrop-blur-sm flex items-center justify-center z-50 p-4"
       onClick={handleBackdropClick}
     >
-      <div className="bg-white bg-opacity-95 backdrop-blur-sm rounded-lg shadow-xl max-w-md w-full p-6">
+      <div className="bg-[#ED985F] bg-opacity-95 backdrop-blur-sm rounded-sm border border-black shadow-xl max-w-md w-full p-6">
         <h3 className="text-lg font-semibold text-slate-900 mb-4">
           Describe the Problem
         </h3>
         <form onSubmit={handleSubmit}>
           <textarea
-            className="w-full border border-slate-300 rounded-lg p-3 text-sm focus:ring-1 focus:ring-slate-500 focus:border-slate-500 outline-none resize-none"
+            className="w-full border border-black rounded-sm bg-[#F7B980] p-3 text-sm focus:ring-1 focus:ring-slate-500 focus:border-black outline-none resize-none"
             rows="4"
             value={problemDesc}
             onChange={(e) => setProblemDesc(e.target.value)}
@@ -43,13 +43,13 @@ function ProblemDescModal({ isOpen, onClose, onSubmit, initialValue = "" }) {
             <button
               type="button"
               onClick={onClose}
-              className="px-4 py-2 text-sm font-medium text-slate-700 bg-slate-100 rounded-lg hover:bg-slate-200 transition-colors"
+              className="px-4 py-2 text-sm font-semibold text-black bg-[#F7B980] border border-black rounded-sm hover:bg-[#001F3D] hover:text-white transition-colors cursor-pointer"
             >
               Cancel
             </button>
             <button
               type="submit"
-              className="px-4 py-2 text-sm font-medium text-white bg-slate-800 rounded-lg hover:bg-slate-900 transition-colors"
+              className="px-4 py-2 text-sm font-semibold text-black bg-[#ED985F] border border-black rounded-sm hover:bg-[#001F3D] hover:text-white transition-colors cursor-pointer"
             >
               Save
             </button>
